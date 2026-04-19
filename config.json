@@ -1,10 +1,30 @@
 {
     "video_title": "Military Spending Race (1960-2023)",
-    "wb_indicator": "MS.MIL.XPND.CD",
-    "timeframe": [1960, 2023],
-    "top_n_on_screen": 10,
     "value_format": "currency",
-    "color_theme": "#7f1d1d",
-    "background_color": "#00B140",
-    "output_filename": "military_spending_race.mp4"
+    "output_filename": "military_spending_race.mp4",
+    "theme": "glass_dark",
+    "preview_timeframe": [1980, 1983],
+    "source": {
+        "type": "world_bank",
+        "indicator": "MS.MIL.XPND.CD",
+        "timeframe": [1960, 2023]
+    },
+    "assets": {
+        "type": "flags",
+        "top_n_to_fetch": 60
+    },
+    "render": {
+        "top_n_on_screen": 10,
+        "steps_per_year": 60,
+        "fps": 30,
+        "bitrate": 8000,
+        "rank_smooth_window_a": 25,
+        "rank_smooth_window_b": 35,
+        "race_top": 0.72,
+        "race_bottom": 0.11,
+        "show_total_trend": true,
+        "trend_label": "Total spending — all countries",
+        "flag_corner_radius_frac": 0.14,
+        "row_min_weight": 0.35
+    }
 }
