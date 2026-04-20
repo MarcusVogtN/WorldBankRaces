@@ -13,8 +13,11 @@ PALETTE = [
 ]
 
 
-# background: solid hex OR ("gradient", c_top, c_bottom) OR ("radial", c_center, c_edge)
-BackgroundSpec = Union[str, Tuple[str, str, str]]
+# background: solid hex
+#  OR ("gradient", c_top, c_bottom)
+#  OR ("radial", c_center, c_edge)
+#  OR ("lava", c_center, c_edge, c_blob) — animated blurred-blob overlay with tension pulse
+BackgroundSpec = Union[str, Tuple[str, ...]]
 
 
 @dataclass
@@ -83,8 +86,28 @@ FLAT_LIGHT = Theme(
 )
 
 
+GLASS_DARK_LAVA = Theme(
+    name='glass_dark_lava',
+    background=('lava', '#1e3a8a', '#000000', '#1e40af'),
+    bar_style='glass',
+    bar_corner_radius_px=18,
+    bar_opacity=0.55,
+    bar_backdrop=True,
+    bar_inner_gradient=True,
+    row_card=True,
+    row_card_color='#ffffff',
+    row_card_opacity=0.04,
+    row_card_corner_radius_px=22,
+    title_card=True,
+    title_card_color='#ffffff',
+    title_card_opacity=0.08,
+    font_family='Orbitron',
+)
+
+
 THEMES = {
     GLASS_DARK.name: GLASS_DARK,
+    GLASS_DARK_LAVA.name: GLASS_DARK_LAVA,
     FLAT_LIGHT.name: FLAT_LIGHT,
 }
 

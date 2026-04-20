@@ -2,7 +2,7 @@
     "video_title": "Military Spending Race (1960-2023)",
     "value_format": "currency",
     "output_filename": "military_spending_race.mp4",
-    "theme": "glass_dark",
+    "theme": "glass_dark_lava",
     "preview_timeframe": null,
     "source": {
         "type": "world_bank",
@@ -24,7 +24,52 @@
         "race_bottom": 0.11,
         "show_total_trend": true,
         "trend_label": "Total spending — all countries",
+        "end_hold_seconds": 1.0,
         "flag_corner_radius_frac": 0.14,
-        "row_min_weight": 0.35
+        "row_min_weight": 0.35,
+        "background_animation": {
+            "enabled": true,
+            "blob_count": 4,
+            "base_period_seconds": 18.0,
+            "pulse_gain": 0.45,
+            "regen_every_frames": 6
+        },
+        "spotlight": {
+            "enabled": true,
+            "label": "BIG MOVER",
+            "rate_window_years": 3,
+            "percentile": 98.0,
+            "min_screen_seconds": 4.0,
+            "switch_ratio": 2.0,
+            "fade_frames": 12,
+            "curated_file": null,
+            "event_threshold_percentile": 95.0,
+            "event_merge_gap_years": 2.0,
+            "max_events": 50
+        },
+        "narration": {
+            "enabled": false,
+            "model": "claude-opus-4-7",
+            "tts": {
+                "provider": "elevenlabs",
+                "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+                "model_id": "eleven_turbo_v2_5",
+                "stability": 0.25,
+                "style": 1.0,
+                "similarity_boost": 0.8,
+                "speed": 1.05
+            },
+            "tone": "hype friend watching a race with you, casual and loud, uses slang, no suit-and-tie words",
+            "words_per_second": 2.7,
+            "max_speech_coverage": 0.9,
+            "suggest_trim": true,
+            "background_music": {
+                "path": "races/assets/music/Bar_Chart_Race_Tension_2026-04-20T113611.mp3",
+                "voice_volume_db": 0.0,
+                "music_volume_db": -18.0,
+                "fade_in_seconds": 0.5,
+                "fade_out_seconds": 1.5
+            }
+        }
     }
 }

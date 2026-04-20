@@ -12,14 +12,19 @@ def format_value(v: float, fmt: str) -> str:
     if pd.isna(v) or v == 0:
         return ''
     prefix = '$' if fmt == 'currency' else ''
+    # Aim for ~3 significant digits: when the leading number is single-digit,
+    # show 2 decimals (e.g. $2.30 T); otherwise drop decimals (e.g. $12 T).
+    def _fmt(n: float, suffix: str) -> str:
+        decimals = 2 if n < 10 else 0
+        return f'{prefix}{n:.{decimals}f} {suffix}'
     if v >= 1e12:
-        return f'{prefix}{v / 1e12:.0f} T'
+        return _fmt(v / 1e12, 'T')
     if v >= 1e9:
-        return f'{prefix}{v / 1e9:.0f} B'
+        return _fmt(v / 1e9, 'B')
     if v >= 1e6:
-        return f'{prefix}{v / 1e6:.0f} M'
+        return _fmt(v / 1e6, 'M')
     if v >= 1e3:
-        return f'{prefix}{v / 1e3:.0f} K'
+        return _fmt(v / 1e3, 'K')
     return f'{prefix}{v:,.0f}'
 
 
