@@ -4,3 +4,4 @@ cache/
 output/
 *.mp4
 .env
+.claude/scheduled_tasks.lock

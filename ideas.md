@@ -111,8 +111,6 @@ python run.py --extract-movers # candidate spotlight events for hand-curation
 python run.py                  # render
 ```
 
-For per-capita modes (lots of flag rotation), bump `assets.top_n_to_fetch` from 60 to ~100 so you don't end up with text-only spotlight cards.
-
 ## Previewing before committing to a full render
 
 ```bash
