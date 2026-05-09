@@ -5,3 +5,4 @@ output/
 *.mp4
 .env
 .claude/scheduled_tasks.lock
+*-dumb-minimized-audit.md
